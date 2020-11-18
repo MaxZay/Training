@@ -38,7 +38,7 @@ namespace BakeryLib
 
         public override string ToString()  // Переопределение ToString()
         {
-            return string.Join(" ", Ingredients) + " " + "Наценка " + Markup.ToString();
+            return $"{this.ProductName}: {string.Join(" ", Ingredients)} {Markup}";
         }
 
         public override bool Equals(object obj)  // Переопределение Equals(object obj)

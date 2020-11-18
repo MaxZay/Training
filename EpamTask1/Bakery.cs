@@ -5,9 +5,9 @@ namespace BakeryLib
 {
     public class Bakery
     {
-        List<Production> Products { get; set; }  // Список продукции
+        Production[] Products { get; set; }  // Список продукции
 
-        public Bakery(List<Production> products)  // Конструктор Bakery
+        public Bakery(Production[] products)  // Конструктор Bakery
         {
             Products = products;
         }
