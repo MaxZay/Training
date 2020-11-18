@@ -185,9 +185,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1.csproj",
-      "projectName": "EpamTask1",
-      "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1.csproj",
+      "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj",
+      "projectName": "BakeryLib",
+      "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj",
       "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\obj\\",
       "projectStyle": "PackageReference",

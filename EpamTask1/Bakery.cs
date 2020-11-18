@@ -7,6 +7,11 @@ namespace EpamTask1
     {
         List<Production> Products { get; set; }  // Список продукции
 
+        public Bakery(List<Production> products)  // Конструктор Bakery
+        {
+            Products = products;
+        }
+
         public override string ToString()  // Переопределение ToString()
         {
             return string.Join(" ", Products);
@@ -20,15 +25,7 @@ namespace EpamTask1
 
         public override int GetHashCode()  // Переопределение GetHashCode()
         {
-            unchecked
-            {
-                int hash = 19;
-                foreach (Production product in Products)
-                {
-                    hash = hash * 31 + product.GetHashCode();
-                }
-                return hash;
-            }
+            return base.GetHashCode();
         }
     }
 }
