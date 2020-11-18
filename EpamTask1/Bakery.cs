@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EpamTask1
+namespace BakeryLib
 {
     public class Bakery
     {

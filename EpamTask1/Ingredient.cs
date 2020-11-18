@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpamTask1
+namespace BakeryLib
 {
     public class Ingredient
     {
+        public string IngridientName { get; set; }  // Название ингридиента
         public decimal Price { get; set; }  //  Цена за 100г
         public float CalorificValue { get; set; }  //  Калории в 100г
         public float Weight { get; set; }  // Вес
@@ -26,8 +27,9 @@ namespace EpamTask1
             }
         }
 
-        public Ingredient(decimal price, float calorificValue, float weight)  // Контруктор Ingridient
+        public Ingredient(string ingridientName, decimal price, float calorificValue, float weight)  // Контруктор Ingridient
         {
+            IngridientName = ingridientName;
             Price = price;
             CalorificValue = calorificValue;
             Weight = weight;

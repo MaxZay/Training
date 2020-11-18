@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpamTask1
+namespace BakeryLib
 {
     public class Production
     {
-        public List<Ingredient> Ingredients { get; set; }  // Список ингридиентов 
-                                                                                      
+        public string ProductName { get; set; }  // Название продукта
+        public List<Ingredient> Ingredients { get; set; }  // Список ингридиентов                                                                   
         public int Markup { get; set; }  // Наценка
-        public Production(List<Ingredient> ingredients,int markup)  // Конструктор Production
+       
+        public Production(string productName, List<Ingredient> ingredients,int markup)  // Конструктор Production
         {
+            ProductName = productName;
             Ingredients = ingredients;
             Markup = markup;
         } 
@@ -36,7 +38,7 @@ namespace EpamTask1
 
         public override string ToString()  // Переопределение ToString()
         {
-            return string.Join(" ", Ingredients) + " " + Markup.ToString();
+            return string.Join(" ", Ingredients) + " " + "Наценка " + Markup.ToString();
         }
 
         public override bool Equals(object obj)  // Переопределение Equals(object obj)
