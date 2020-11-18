@@ -7,8 +7,9 @@ namespace BakeryLib  //    Продукт: Батон Ингридиенты: М
 {                                 
     public static class File
     {
-        public static Bakery ReadFromFile(string path, Bakery bakery)  // Метод для чтения данных из файла
+        public static Bakery ReadFromFile(string path)  // Метод для чтения данных из файла
         {
+            Bakery bakery;
             using (StreamReader sr = new StreamReader(path))
             {
                 List<Production> productions = new List<Production>();
@@ -29,7 +30,7 @@ namespace BakeryLib  //    Продукт: Батон Ингридиенты: М
             return bakery;
         }
 
-        public static string ReadNameOfProduct(string[] splitedLine)
+        public static string ReadNameOfProduct(string[] splitedLine)  // Метод для чтения названия продукта  
         {
             string line = "";
             for(int i = 1; i < splitedLine.Length; i++)
@@ -46,7 +47,7 @@ namespace BakeryLib  //    Продукт: Батон Ингридиенты: М
             return line;
         }
 
-        public static List<Ingredient> ReadIndigrients(string[] splitedLine)
+        public static List<Ingredient> ReadIndigrients(string[] splitedLine)  // Метод для чтения ингридиентов 
         {
             List<Ingredient> ingredients = new List<Ingredient>();
             for(int i = Array.IndexOf(splitedLine, "Ингридиенты:") + 1; i < Array.IndexOf(splitedLine, "Наценка:");)

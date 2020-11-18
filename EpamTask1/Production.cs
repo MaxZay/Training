@@ -9,7 +9,18 @@ namespace BakeryLib
         public string ProductName { get; set; }  // Название продукта
         public List<Ingredient> Ingredients { get; set; }  // Список ингридиентов                                                                   
         public int Markup { get; set; }  // Наценка
-       
+        public float Weight
+        {
+            get
+            {
+                float weight = 0;
+                foreach(Ingredient ingredient in Ingredients)
+                {
+                    weight += ingredient.Weight;
+                }
+                return weight;
+            }
+        }
         public Production(string productName, List<Ingredient> ingredients,int markup)  // Конструктор Production
         {
             ProductName = productName;
@@ -26,6 +37,7 @@ namespace BakeryLib
             }
             return calorificValue;
         }
+       
         public decimal GetPrice()  // Метод для вычисления цены продукта
         {
             decimal price = 0;

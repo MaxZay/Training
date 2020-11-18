@@ -1,0 +1,4 @@
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.csprojAssemblyReference.cache
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.AssemblyInfoInputs.cache
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.AssemblyInfo.cs
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.csproj.CoreCompileInputs.cache

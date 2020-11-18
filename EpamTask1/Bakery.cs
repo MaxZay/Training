@@ -5,14 +5,14 @@ namespace BakeryLib
 {
     public class Bakery
     {
-        Production[] Products { get; set; }  // Список продукции
+        public Production[] Products { get; set; }  // Список продукции
 
         public Bakery(Production[] products)  // Конструктор Bakery
         {
             Products = products;
         }
 
-        public override string ToString()  // Переопределение ToString()
+        public  override string ToString()  // Переопределение ToString()
         {
             return base.ToString();
         }
