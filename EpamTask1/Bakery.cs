@@ -14,13 +14,12 @@ namespace EpamTask1
 
         public override string ToString()  // Переопределение ToString()
         {
-            return string.Join(" ", Products);
+            return base.ToString();
         }
 
         public override bool Equals(object obj)  // Переопределение Equals()
         {
-            Bakery bakery = (Bakery)obj;
-            return bakery.Products == this.Products;
+            return base.Equals(obj);
         }
 
         public override int GetHashCode()  // Переопределение GetHashCode()
