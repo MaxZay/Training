@@ -11,11 +11,11 @@ namespace BakeryLib
         public float CalorificValue { get; set; }  //  Калории в 100г
         public float Weight { get; set; }  // Вес
 
-        public float RealPrice  // Цена ингридиента
+        public decimal RealPrice  // Цена ингридиента
         {
             get
             {
-                return (float)this.Price * this.Weight / 100;
+                return this.Price * (decimal)this.Weight / 100;
             }
         }
 

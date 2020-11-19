@@ -2,3 +2,8 @@ C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.AssemblyInfoInputs.cache
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.AssemblyInfo.cs
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.csproj.CoreCompileInputs.cache
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\bin\Debug\netstandard2.0\BakeryLib.deps.json
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\bin\Debug\netstandard2.0\BakeryLib.dll
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\bin\Debug\netstandard2.0\BakeryLib.pdb
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.dll
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask1\obj\Debug\netstandard2.0\BakeryLib.pdb

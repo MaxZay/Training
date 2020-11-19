@@ -45,7 +45,7 @@ namespace BakeryLib
             {
                 price += (decimal)ingredient.RealPrice;
             }
-            return price * Markup / 100 + price;
+            return price + price * Markup / 100;
         }
 
         public override string ToString()  // Переопределение ToString()
