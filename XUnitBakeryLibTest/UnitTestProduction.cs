@@ -13,9 +13,9 @@ namespace XUnitBakeryLibTest
             // Arrange
             List<Ingredient> ingredients = new List<Ingredient>()
             {
-                    new Ingredient("Вода", 0.2M, 0, 100),
-                    new Ingredient("Мука", 0.3M, 360, 350),
-                    new Ingredient("Масло", 1M, 884, 50)
+                new Ingredient("Вода", 0.2M, 0, 100),
+                new Ingredient("Мука", 0.3M, 360, 350),
+                new Ingredient("Масло", 1M, 884, 50)
             };
             Production production = new Production("Батон", ingredients, 20);
             float expectedCalorificValue = 1702;

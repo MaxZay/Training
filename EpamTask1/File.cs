@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Linq;
+using System.Globalization;
 
 namespace BakeryLib  
 {                                 
@@ -15,6 +16,7 @@ namespace BakeryLib
             {
                 List<Production> products = new List<Production>();
                 List<Ingredient> ingredients = new List<Ingredient>();
+                NumberFormatInfo nfi = new NumberFormatInfo() { NumberDecimalSeparator = "." };
                 Ingredient ingredient;
                 Production product;
                 string line = "";
@@ -39,10 +41,10 @@ namespace BakeryLib
                     }
                     else
                     {
-                        splitedLine = line.Split(' ');
+                        splitedLine = line.Trim().Split(' ');
                         nameIngridient = string.Join(" ", splitedLine.TakeWhile(u => u.ToCharArray().All(char.IsLetter)));
                         flag = true;
-                        ingredient = new Ingredient(nameIngridient, decimal.Parse(splitedLine[splitedLine.Length - 3]), float.Parse(splitedLine[splitedLine.Length - 2]), 
+                        ingredient = new Ingredient(nameIngridient, decimal.Parse(splitedLine[splitedLine.Length - 3], nfi), float.Parse(splitedLine[splitedLine.Length - 2]), 
                             float.Parse(splitedLine[splitedLine.Length - 1]));
                         ingredients.Add(ingredient);
                     }
