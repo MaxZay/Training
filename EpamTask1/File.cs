@@ -2,62 +2,54 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Linq;
 
-namespace BakeryLib  //    Продукт: Батон Ингридиенты: Молоко 4 200 5 ... Наценка: 25
+namespace BakeryLib  
 {                                 
     public static class File
     {
-        public static Bakery ReadFromFile(string path)  // Метод для чтения данных из файла
+        public static Bakery ReadFromFile(string path) // метод для чтения данных из файла
         {
             Bakery bakery;
             using (StreamReader sr = new StreamReader(path))
             {
-                List<Production> productions = new List<Production>();
+                List<Production> products = new List<Production>();
                 List<Ingredient> ingredients = new List<Ingredient>();
+                Ingredient ingredient;
                 Production product;
-                string line;
+                string line = "";
                 string[] splitedLine;
-                int markup;
+                string nameProduct = "", nameIngridient;
+                bool flag = false;
+                int markup = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    splitedLine = line.Split(' ');
-                    markup = int.Parse(splitedLine[splitedLine.Length - 2]);
-                    product = new Production(ReadNameOfProduct(splitedLine), ReadIndigrients(splitedLine), markup);
-                    productions.Add(product);
+                    if (line[0] != ' ')
+                    {
+                        if(flag == true)
+                        {
+                            product = new Production(nameProduct, ingredients, markup);
+                            flag = false;
+                            ingredients.Clear();
+                            products.Add(product);
+                        }
+                        splitedLine = line.Split(' ');
+                        nameProduct = string.Join(" ", splitedLine.Where(u => Array.IndexOf(splitedLine, u) != splitedLine.Length - 1));
+                        markup = int.Parse(splitedLine[splitedLine.Length - 1]);
+                    }
+                    else
+                    {
+                        splitedLine = line.Split(' ');
+                        nameIngridient = string.Join(" ", splitedLine.TakeWhile(u => u.ToCharArray().All(char.IsLetter)));
+                        flag = true;
+                        ingredient = new Ingredient(nameIngridient, decimal.Parse(splitedLine[splitedLine.Length - 3]), float.Parse(splitedLine[splitedLine.Length - 2]), 
+                            float.Parse(splitedLine[splitedLine.Length - 1]));
+                        ingredients.Add(ingredient);
+                    }
                 }
-                bakery = new Bakery(productions.ToArray());
+                bakery = new Bakery(products.ToArray());
             }
             return bakery;
-        }
-
-        public static string ReadNameOfProduct(string[] splitedLine)  // Метод для чтения названия продукта  
-        {
-            string line = "";
-            for(int i = 1; i < splitedLine.Length; i++)
-            {
-                if(splitedLine[i] == "Ингридиенты:")
-                {
-                    break;
-                }
-                else
-                {
-                    line += " " + splitedLine[i];
-                }
-            }
-            return line;
-        }
-
-        public static List<Ingredient> ReadIndigrients(string[] splitedLine)  // Метод для чтения ингридиентов 
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            for(int i = Array.IndexOf(splitedLine, "Ингридиенты:") + 1; i < Array.IndexOf(splitedLine, "Наценка:");)
-            {
-                Ingredient ingredient = new Ingredient(splitedLine[i], decimal.Parse(splitedLine[i + 1]), float.Parse(splitedLine[i + 2]),
-                    float.Parse(splitedLine[i + 3]));
-                i += 4;
-                ingredients.Add(ingredient);
-            }
-            return ingredients;
         }
     }
 }
