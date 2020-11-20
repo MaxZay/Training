@@ -32,8 +32,8 @@ namespace BakeryLib
                         {
                             product = new Production(nameProduct, ingredients, markup);
                             flag = false;
-                            ingredients.Clear();
                             products.Add(product);
+                            ingredients = new List<Ingredient>();                        
                         }
                         splitedLine = line.Split(' ');
                         nameProduct = string.Join(" ", splitedLine.Where(u => Array.IndexOf(splitedLine, u) != splitedLine.Length - 1));
@@ -49,6 +49,7 @@ namespace BakeryLib
                         ingredients.Add(ingredient);
                     }
                 }
+                products.Add(product = new Production(nameProduct, ingredients, markup));
                 bakery = new Bakery(products.ToArray());
             }
             return bakery;

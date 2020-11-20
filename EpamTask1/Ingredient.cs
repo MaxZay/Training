@@ -15,7 +15,7 @@ namespace BakeryLib
         {
             get
             {
-                return this.Price * (decimal)this.Weight / 100;
+                return Math.Round(this.Price * (decimal)this.Weight / 100, 2);
             }
         }
 
@@ -23,7 +23,7 @@ namespace BakeryLib
         {
             get
             {
-                return this.CalorificValue * this.Weight / 100;
+                return (float)Math.Round(this.CalorificValue * this.Weight / 100);
             }
         }
 
@@ -42,6 +42,13 @@ namespace BakeryLib
 
         public override bool Equals(object obj)  // Переопределение Equals(object obj)
         {
+            /*Ingredient ing = obj as Ingredient;
+            if(ing == null)
+            {
+                return false;
+            }
+
+            return ing.IngridientName == this.IngridientName && ing.CalorificValue == this.CalorificValue && ing.Price == this.Price && ing.Weight == this.Weight;*/
             return base.Equals(obj);
         }
 

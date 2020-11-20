@@ -16,6 +16,7 @@ namespace BakeryLib
         public static Production[] OrderByPrice(Bakery bakery)  // Метод для сортировки изделий по цене
         {
             Production[] products = (Production[])bakery.Products.Clone();
+            decimal d = products[0].GetPrice();
             return products.OrderBy(u => u.GetPrice()).ToArray();
         }
 

@@ -45,7 +45,7 @@ namespace BakeryLib
             {
                 price += (decimal)ingredient.RealPrice;
             }
-            return price + price * Markup / 100;
+            return Math.Round(price + price * Markup / 100, 2);
         }
 
         public override string ToString()  // Переопределение ToString()
@@ -55,12 +55,24 @@ namespace BakeryLib
 
         public override bool Equals(object obj)  // Переопределение Equals(object obj)
         {
-            return base.Equals(obj);
+             Production pr = obj as Production;
+             if(pr == null)
+             {
+                 return false;
+             }
+
+            return pr.Ingredients == this.Ingredients && pr.Markup == this.Markup && pr.ProductName == this.ProductName;
+       //     return base.Equals(obj);
         }
 
         public override int GetHashCode()  // Переопределение GetHashCode()
         {
-            return base.GetHashCode();
+            int hash = 13;
+            hash = (hash * 7) + ProductName.GetHashCode();
+            hash = (hash * 7) + Ingredients.GetHashCode();
+            hash = (hash * 7) + Markup.GetHashCode();
+            
+            return hash;
         }
     }
 
