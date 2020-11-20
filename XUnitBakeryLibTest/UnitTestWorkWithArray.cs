@@ -105,7 +105,54 @@ namespace XUnitBakeryLibTest
         }
 
         [Fact]
-        public void TestFindProductsEqualsByPriceAndCalorificValue()
+        public void TestFindProductsEqualsByPriceAndCalorificValue()  // Тестирование мотеда FindProductsEqualsByPriceAndCalorificValue()
+        {
+            // Arrange
+            List<Ingredient> ingredients = new List<Ingredient>()
+            {
+                new Ingredient("Вода", 0.2M, 0, 100), 
+                new Ingredient("Мука", 0.3M, 360, 350), 
+                new Ingredient("Масло", 1M, 884, 50)
+            };
+            Production production = new Production("Батон", ingredients, 20);
+            List<Ingredient> ingredients1 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 350), 
+                new Ingredient("Вода", 0.2M, 0, 100), 
+                new Ingredient("Дрожжи", 0.5M, 325, 25), 
+                new Ingredient("Масло", 1M, 884, 50)  
+            };
+            Production production1 = new Production("Хлеб", ingredients1, 15);
+            List<Ingredient> ingredients2 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 150), 
+                new Ingredient("Вода", 0.2M, 0, 200),  
+                new Ingredient("Дрожжи", 0.5M, 325, 50), 
+                new Ingredient("Масло", 1M, 884, 100)  
+            };
+            Production production2 = new Production("Хлеб Минский", ingredients2, 25);
+            List<Ingredient> ingredients3 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 350),  
+                new Ingredient("Вода", 0.2M, 0, 100), 
+                new Ingredient("Масло", 1M, 884, 50),  
+                new Ingredient("Сахар", 0.7M, 325, 125),  
+                new Ingredient("Сгущенка", 0.2M, 416, 100)  
+            };
+            Production production3 = new Production("Плюшка со сгущенкой", ingredients3, 15);
+            List<Production> expectedProducts = new List<Production> { production2 };
+            List<Production> testProducts = new List<Production> { production, production1, production2, production3 };
+            Bakery bakery = new Bakery(testProducts.ToArray());
+
+            // Act
+            Production[] productionArr = WorkWithArray.FindProductsEqualsByPriceAndCalorificValue(bakery, 2.62M, 1586f);
+
+            // Assert
+            Assert.Equal(expectedProducts.ToArray(), productionArr);
+        }
+        
+        [Fact]
+        public void TestFindProductsCountMoreThanNumber() // Тестирование метода FindProductsCountMoreThanNumber()
         {
             // Arrange
             List<Ingredient> ingredients = new List<Ingredient>()
@@ -140,15 +187,64 @@ namespace XUnitBakeryLibTest
                 new Ingredient("Сгущенка", 0.2M, 416, 100)  // 0.2  3.88
             };
             Production production3 = new Production("Плюшка со сгущенкой", ingredients3, 15);
-            List<Production> expectedProducts = new List<Production> { production2 };
-            List<Production> testProducts = new List<Production> { production, production1, production2, production3 };
-            Bakery bakery = new Bakery(testProducts.ToArray());
+            List<Production> expectProducts = new List<Production>() { production1, production2, production3};
+            List<Production> testProducts = new List<Production>() { production, production1, production2, production3 };
+            Bakery actualBakery = new Bakery(testProducts.ToArray());
+            Bakery expectedBakery = new Bakery(expectProducts.ToArray());
 
             // Act
-            Production[] productionArr = WorkWithArray.FindProductsEqualsByPriceAndCalorificValue(bakery, 2.62M, 1586f);
+            actualBakery.Products = WorkWithArray.FindProductsCountMoreThanNumber(actualBakery, 3);
 
             // Assert
-            Assert.Equal(expectedProducts.ToArray(), productionArr);
+            Assert.Equal(expectedBakery, actualBakery);
+        }
+
+        [Fact]
+        public void TestFindProductsByVolume()  // Тестирование метода FindProductsByVolume()
+        {
+            // Arrange
+            List<Ingredient> ingredients = new List<Ingredient>()
+            {
+                new Ingredient("Вода", 0.2M, 0, 100), 
+                new Ingredient("Мука", 0.3M, 360, 350), 
+                new Ingredient("Масло", 1M, 884, 50)  //500  70%
+            };
+            Production production = new Production("Батон", ingredients, 20);
+            List<Ingredient> ingredients1 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 350), 
+                new Ingredient("Вода", 0.2M, 0, 100),  
+                new Ingredient("Дрожжи", 0.5M, 325, 25), 
+                new Ingredient("Масло", 1M, 884, 50)  //525  66.67%
+            };
+            Production production1 = new Production("Хлеб", ingredients1, 15);
+            List<Ingredient> ingredients2 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 150),  
+                new Ingredient("Вода", 0.2M, 0, 200),  
+                new Ingredient("Дрожжи", 0.5M, 325, 50),  
+                new Ingredient("Масло", 1M, 884, 100)  //500    30%
+            };
+            Production production2 = new Production("Хлеб Минский", ingredients2, 25);
+            List<Ingredient> ingredients3 = new List<Ingredient>()
+            {
+                new Ingredient("Мука", 0.3M, 360, 350),  
+                new Ingredient("Вода", 0.2M, 0, 100),  
+                new Ingredient("Масло", 1M, 884, 50),  
+                new Ingredient("Сахар", 0.7M, 325, 125), 
+                new Ingredient("Сгущенка", 0.2M, 416, 100)  //725  48%
+            };
+            Production production3 = new Production("Плюшка со сгущенкой", ingredients3, 15);
+            List<Production> testProducts = new List<Production>() { production, production1, production2, production3 };
+            List<Production> expectedProducts = new List<Production>() { production, production1};
+            Bakery actualBakery = new Bakery(testProducts.ToArray());
+            Bakery expectedBakery = new Bakery(expectedProducts.ToArray());
+
+            // Act
+            actualBakery.Products = WorkWithArray.FindProductsByVolume(actualBakery, "Мука", 50);
+
+            // Arrange
+            Assert.Equal(expectedBakery, actualBakery);
         }
     }
 }

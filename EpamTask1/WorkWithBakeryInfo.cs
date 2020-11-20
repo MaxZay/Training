@@ -26,7 +26,7 @@ namespace BakeryLib
             return bakery.Products.Where(u => u.GetPrice() == price && u.GetCalorificValue() == calorificValue).ToArray();
         }
 
-        public static Production[] FindProductsByVolume(Bakery bakery, Ingredient ingredient, int value)  // Метод для нахождения изделий у которых объём использования заданного ингредиента
+        public static Production[] FindProductsByVolume(Bakery bakery, string ingredientName, int value)  // Метод для нахождения изделий у которых объём использования заданного ингредиента
   //          больше указанной величины  
         {
             float ingredientVolume;
@@ -35,7 +35,7 @@ namespace BakeryLib
             {
                 foreach(Ingredient ing in production.Ingredients)
                 {
-                    if (ing.IngridientName == ingredient.IngridientName)
+                    if (ing.IngridientName == ingredientName)
                     {
                         ingredientVolume = ing.Weight * 100 / production.Weight;
                         if (ingredientVolume > value)

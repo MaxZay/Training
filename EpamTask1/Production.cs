@@ -60,19 +60,12 @@ namespace BakeryLib
              {
                  return false;
              }
-
             return pr.Ingredients == this.Ingredients && pr.Markup == this.Markup && pr.ProductName == this.ProductName;
-       //     return base.Equals(obj);
         }
 
         public override int GetHashCode()  // Переопределение GetHashCode()
         {
-            int hash = 13;
-            hash = (hash * 7) + ProductName.GetHashCode();
-            hash = (hash * 7) + Ingredients.GetHashCode();
-            hash = (hash * 7) + Markup.GetHashCode();
-            
-            return hash;
+            return base.GetHashCode();
         }
     }
 

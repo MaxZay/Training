@@ -42,14 +42,15 @@ namespace BakeryLib
 
         public override bool Equals(object obj)  // Переопределение Equals(object obj)
         {
-            /*Ingredient ing = obj as Ingredient;
-            if(ing == null)
+            Ingredient ing = obj as Ingredient;
+            if (ing == null)
             {
                 return false;
             }
 
-            return ing.IngridientName == this.IngridientName && ing.CalorificValue == this.CalorificValue && ing.Price == this.Price && ing.Weight == this.Weight;*/
-            return base.Equals(obj);
+            return ing.IngridientName == this.IngridientName 
+                && ing.CalorificValue == this.CalorificValue && ing.Price == this.Price 
+                && ing.Weight == this.Weight;
         }
 
         public override int GetHashCode()  // Переопределение GetHashCode()
