@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj": {}
+    "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj": {
+    "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj",
+        "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj",
         "projectName": "BakeryLib",
-        "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj",
+        "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj",
         "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\obj\\",
+        "outputPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",

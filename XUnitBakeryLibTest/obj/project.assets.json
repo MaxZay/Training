@@ -3505,11 +3505,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
+      "projectUniqueName": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
       "projectName": "XUnitBakeryLibTest",
-      "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
+      "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
       "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\XUnitBakeryLibTest\\obj\\",
+      "outputPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\XUnitBakeryLibTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3525,8 +3525,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj": {
-              "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj"
+            "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj": {
+              "projectPath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj"
             }
           }
         }

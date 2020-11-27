@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sHmi3p8F5WVFG2NmuFzeI14tYuxqOfIr66JwFpJhqCIb1Do0i7Bhcj9DUJJOMimMSZ/33j6r33I2OzYv9J8yoQ==",
+  "dgSpecHash": "0Q/23EYuRoerPPRBFtNjY44J469bOZLdkxc4ZEGFjgblmxaII6T+1XEm7hqdKvXl0zwaz8fZ5kaNJ9PQAk1wLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
+  "projectFilePath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\XUnitBakeryLibTest\\XUnitBakeryLibTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maxim\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\maxim\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

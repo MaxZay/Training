@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v6kBkeDJBdVcBHXKdwkNgVNYOGp5EEK7lR60LOHFB3U13rw0kIYWkTbBGlPfnCbi7Fsni+hbqgEhj/C8WMTQ1Q==",
+  "dgSpecHash": "8hcmXG2qg+7Jmr2hQNeQYvCjsmzzwc9RNifceuv+66QrGIr6zgRiH7dQ1iWNB13Ha42En7mCtAru44dqU3BrHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\BakeryLib.csproj",
+  "projectFilePath": "C:\\Users\\maxim\\Documents\\EPAM\\Решения\\EpamTask1\\EpamTask1\\BakeryLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maxim\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\maxim\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
