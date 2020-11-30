@@ -5,7 +5,7 @@ namespace ProductsLib
     abstract public class Product : IProduct
     {
         #region Свойства
-        public string ProductType { get; set; }  // Наименование продукта
+        public string ProductType { get; set; }  // Тип продукта
         public decimal PurchasePrice { get; set; }  // Закупочная цена
         public int Markup { get; set; }  // Наценка
         public int Quantity { get; set; }  // Количество единиц 
