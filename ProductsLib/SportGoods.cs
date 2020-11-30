@@ -23,7 +23,41 @@ namespace ProductsLib
             Name = name;
         }
 
+        public static SportGoods operator +(SportGoods sportGoods1, SportGoods sportGoods2)
+        {
+            if (sportGoods1.Name == sportGoods2.Name)
+            {
 
+            }
+            else
+            {
+                throw new Exception("Не совпадают наименования продукта");
+            }
+            return sportGoods1;
+        }
+
+        public static SportGoods operator -(SportGoods sportGoods1, int number)
+        {
+            if (number > sportGoods1.Quantity)
+            {
+                throw new Exception("Отнимаемое число больше чем количество товара");
+            }
+            else
+            {
+                sportGoods1.Quantity = sportGoods1.Quantity - number;
+                return sportGoods1;
+            }
+        }
+
+        public override int ToInt()
+        {
+            return (int)(this.TotalCost() * 100);
+        }
+
+        public override double ToDouble()
+        {
+            return (double)(this.TotalCost());
+        }
     }
 }
 

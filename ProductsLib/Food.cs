@@ -47,5 +47,17 @@ namespace ProductsLib
                 return food1;
             }
         }
+    
+        public override int ToInt()
+        {
+            return (int)(this.TotalCost() * 100);
+        }
+
+        public override double ToDouble()
+        {
+            return (double)(this.TotalCost());
+        }
+
+
     }
 }

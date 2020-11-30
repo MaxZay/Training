@@ -53,6 +53,10 @@ namespace ProductsLib
             Quantity = quantity;
         }
 
+        abstract public int ToInt();
+
+        abstract public double ToDouble();
+
         public override string ToString() // Переопределение ToString() 
         {
             return base.ToString();
