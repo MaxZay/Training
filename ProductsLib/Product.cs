@@ -11,8 +11,14 @@ namespace ProductsLib
         public int Quantity { get; set; }  // Количество единиц 
         #endregion
 
-        abstract public decimal UnitCost();
-        abstract public decimal TotalCost();
+        public decimal UnitCost()  // Стоимость единицы товара
+        {
+            return PurchasePrice + PurchasePrice * (decimal)Markup / 100;
+        }
+        public decimal TotalCost()  // Общая стоимость товаров
+        {
+            return (PurchasePrice + PurchasePrice * (decimal)Markup / 100) * (decimal)Quantity;
+        }
 
         public Product(string productType,
             decimal purchasePrice,
