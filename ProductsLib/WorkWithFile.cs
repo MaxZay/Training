@@ -11,7 +11,7 @@ namespace ProductsLib
         public static void Save(List<Product> products, string fileName)
         {
             var jsonFormatter = new DataContractJsonSerializer(typeof(List<Product>));
-            using (FileStream fs = new FileStream("ProductsInfo.txt", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 jsonFormatter.WriteObject(fs, products);
             }
@@ -20,7 +20,7 @@ namespace ProductsLib
         public static List<Product> Read(string fileName)
         {
             var jsonFormatter = new DataContractJsonSerializer(typeof(List<Product>));
-            using(FileStream fs = new FileStream("ProductsInfo.txt", FileMode.OpenOrCreate))
+            using(FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 var newProducts = jsonFormatter.ReadObject(fs) as List<Product>;
                 return (List<Product>)newProducts;

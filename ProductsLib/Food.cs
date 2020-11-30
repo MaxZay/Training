@@ -22,5 +22,30 @@ namespace ProductsLib
             Name = name;
         }
 
+        public static Food operator +(Food food1, Food food2)
+        {
+            if(food1.Name == food1.Name)
+            {
+
+            }
+            else
+            {
+                throw new Exception("Не совпадают наименования продукта");
+            }
+            return food1;
+        }
+
+        public static Food operator - (Food food1, int number)
+        {
+            if(number > food1.Quantity)
+            {
+                throw new Exception("Отнимаемое число больше чем количество товара");
+            }
+            else
+            {
+                food1.Quantity = food1.Quantity - number;
+                return food1;
+            }
+        }
     }
 }

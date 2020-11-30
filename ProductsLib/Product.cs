@@ -53,17 +53,17 @@ namespace ProductsLib
             Quantity = quantity;
         }
 
-        public override string ToString()
+        public override string ToString() // Переопределение ToString() 
         {
             return base.ToString();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj)  // Переопределение Equals()
         {
             return base.Equals(obj);
         }
 
-        public override int GetHashCode()
+        public override int GetHashCode()  // Переопределение GetHashCode()
         {
             return base.GetHashCode();
         }
