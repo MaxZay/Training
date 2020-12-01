@@ -49,14 +49,15 @@ namespace ProductsLib
             }
         }
 
-        public override int ToInt()
+        public static explicit operator int(Shoes shoes)
         {
-            return (int)(this.TotalCost() * 100);
+            return (int)(shoes.TotalCost() * 100);
         }
 
-        public override double ToDouble()
+        public static explicit operator double(Shoes shoes)
         {
-            return (double)(this.TotalCost());
+            return (double)(shoes.TotalCost());
         }
+        
     }
 }

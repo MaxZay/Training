@@ -47,15 +47,15 @@ namespace ProductsLib
                 return food1;
             }
         }
-    
-        public override int ToInt()
+
+        public static explicit operator int(Food food)
         {
-            return (int)(this.TotalCost() * 100);
+            return (int)(food.TotalCost() * 100);
         }
 
-        public override double ToDouble()
+        public static explicit operator double(Food food)
         {
-            return (double)(this.TotalCost());
+            return (double)(food.TotalCost());
         }
 
 

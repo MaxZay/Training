@@ -49,14 +49,14 @@ namespace ProductsLib
             }
         }
 
-        public override int ToInt()
+        public static explicit operator int(BuildingMaterials buildingMaterials)
         {
-            return (int)(this.TotalCost() * 100);
+            return (int)(buildingMaterials.TotalCost() * 100);
         }
 
-        public override double ToDouble()
+        public static explicit operator double(BuildingMaterials buildingMaterials)
         {
-            return (double)(this.TotalCost());
+            return (double)(buildingMaterials.TotalCost());
         }
     }
 }
