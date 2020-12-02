@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsLib", "ProductsLib.csproj", "{2EA593CE-EBE4-49F5-98B4-218FDF98CD2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductsLib", "ProductsLib.csproj", "{2EA593CE-EBE4-49F5-98B4-218FDF98CD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLigTest", "..\ProductLigTest\ProductLigTest.csproj", "{BD24D7DF-E4B1-42C1-A056-2207E44ABB92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2EA593CE-EBE4-49F5-98B4-218FDF98CD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EA593CE-EBE4-49F5-98B4-218FDF98CD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EA593CE-EBE4-49F5-98B4-218FDF98CD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD24D7DF-E4B1-42C1-A056-2207E44ABB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD24D7DF-E4B1-42C1-A056-2207E44ABB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD24D7DF-E4B1-42C1-A056-2207E44ABB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD24D7DF-E4B1-42C1-A056-2207E44ABB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

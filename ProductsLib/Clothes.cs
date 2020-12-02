@@ -54,19 +54,19 @@ namespace ProductsLib
         }
 
         #region Получение новых полей
-        private static decimal GetNewPurchasePrice(Shoes shoes1, Shoes shoes2)  // Получение новой закупочной цены
+        private static decimal GetNewPurchasePrice(Clothes clothes1, Clothes clothes2)  // Получение новой закупочной цены
         {
-            return (shoes1.PurchasePrice + shoes2.PurchasePrice) / (decimal)(shoes1.Quantity + shoes2.Quantity);
+            return (clothes1.PurchasePrice + clothes2.PurchasePrice) / 2.0M;
         }
 
-        private static int GetNewMarkup(Shoes shoes1, Shoes shoes2)  // Получение новой наценки
+        private static int GetNewMarkup(Clothes clothes1, Clothes clothes2)  // Получение новой наценки
         {
-            return (shoes1.Markup + shoes2.Markup) / (shoes1.Quantity + shoes2.Quantity);
+            return (clothes1.Markup + clothes2.Markup) / 2;
         }
 
-        private static int GetNewQuantity(Shoes shoes1, Shoes shoes2)  // Получение нового количества
+        private static int GetNewQuantity(Clothes clothes1, Clothes clothes2)  // Получение нового количества
         {
-            return shoes1.Quantity + shoes2.Quantity;
+            return clothes1.Quantity + clothes2.Quantity;
         }
         #endregion
 

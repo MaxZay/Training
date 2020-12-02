@@ -52,15 +52,14 @@ namespace ProductsLib
             }
         }
 
+        #region Получение новых полей
         private static decimal GetNewPurchasePrice(Food food1, Food food2)  // Получение новой закупочной цены
         {
-            return (food1.PurchasePrice + food2.PurchasePrice) / (decimal)(food1.Quantity + food2.Quantity);
+            return (food1.PurchasePrice + food2.PurchasePrice) / 2.0M;
         }
-
-        #region Получение новых полей
         private static int GetNewMarkup(Food food1, Food food2)  // Получение новой наценки
         {
-            return (food1.Markup + food2.Markup) / (food1.Quantity + food2.Quantity);
+            return (food1.Markup + food2.Markup) / 2;
         }
 
         private static int GetNewQuantity(Food food1, Food food2)  // Получение нового количества
