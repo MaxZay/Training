@@ -9,7 +9,7 @@ namespace ProductsLib
         public string Name { get; set; }  // Наименование товара
         public Food(string productType,
             decimal purchasePrice,
-            int markup,
+            float markup,
             int quantity, string name) : base(productType, 
             purchasePrice,
             markup,
@@ -57,7 +57,7 @@ namespace ProductsLib
         {
             return (food1.PurchasePrice + food2.PurchasePrice) / 2.0M;
         }
-        private static int GetNewMarkup(Food food1, Food food2)  // Получение новой наценки
+        private static float GetNewMarkup(Food food1, Food food2)  // Получение новой наценки
         {
             return (food1.Markup + food2.Markup) / 2;
         }
@@ -109,7 +109,16 @@ namespace ProductsLib
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Food food = obj as Food;
+            if(food == null)
+            {
+                return false;
+            }
+            return this.Markup == food.Markup
+                && this.Name == food.Name
+                && this.ProductType == food.ProductType
+                && this.PurchasePrice == food.PurchasePrice
+                && this.Quantity == food.Quantity;
         }
         public override int GetHashCode()
         {

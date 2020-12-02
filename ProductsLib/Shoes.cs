@@ -10,7 +10,7 @@ namespace ProductsLib
 
         public Shoes(string productType,
             decimal purchasePrice,
-            int markup,
+            float markup,
             int quantity, string name) : base(productType,
             purchasePrice,
             markup,
@@ -55,12 +55,12 @@ namespace ProductsLib
         #region Получение новых полей
         private static decimal GetNewPurchasePrice(Shoes shoes1, Shoes shoes2)  // Получение новой закупочной цены
         {
-            return (shoes1.PurchasePrice + shoes2.PurchasePrice) / (decimal)(shoes1.Quantity + shoes2.Quantity);
+            return (shoes1.PurchasePrice + shoes2.PurchasePrice) / 2;
         }
 
-        private static int GetNewMarkup(Shoes shoes1, Shoes shoes2)  // Получение новой наценки
+        private static float GetNewMarkup(Shoes shoes1, Shoes shoes2)  // Получение новой наценки
         {
-            return (shoes1.Markup + shoes2.Markup) / (shoes1.Quantity + shoes2.Quantity);
+            return (shoes1.Markup + shoes2.Markup) / 2;
         }
 
         private static int GetNewQuantity(Shoes shoes1, Shoes shoes2)  // Получение нового количества

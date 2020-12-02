@@ -10,7 +10,7 @@ namespace ProductsLib
 
         public BuildingMaterials(string productType,
             decimal purchasePrice,
-            int markup,
+            float markup,
             int quantity, string name) : base(productType,
             purchasePrice,
             markup,
@@ -55,12 +55,12 @@ namespace ProductsLib
         #region Получение новых полей
         private static decimal GetNewPurchasePrice(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение новой закупочной цены
         {
-            return (buildingMaterials1.PurchasePrice + buildingMaterials2.PurchasePrice) / (decimal)(buildingMaterials1.Quantity + buildingMaterials2.Quantity);
+            return (buildingMaterials1.PurchasePrice + buildingMaterials2.PurchasePrice) / 2;
         }
 
-        private static int GetNewMarkup(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение новой наценки
+        private static float GetNewMarkup(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение новой наценки
         {
-            return (buildingMaterials1.Markup + buildingMaterials2.Markup) / (buildingMaterials1.Quantity + buildingMaterials2.Quantity);
+            return (buildingMaterials1.Markup + buildingMaterials2.Markup) / 2;
         }
 
         private static int GetNewQuantity(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение нового количества

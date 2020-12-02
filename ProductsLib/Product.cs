@@ -7,13 +7,13 @@ namespace ProductsLib
         #region Свойства
         public string ProductType { get; set; }  // Тип продукта
         public decimal PurchasePrice { get; set; }  // Закупочная цена
-        public int Markup { get; set; }  // Наценка
+        public float Markup { get; set; }  // Наценка
         public int Quantity { get; set; }  // Количество единиц 
         #endregion
 
         public decimal UnitCost()  // Стоимость единицы товара
         {
-            return PurchasePrice + PurchasePrice * (decimal)Markup / 100;
+            return PurchasePrice / Quantity + (PurchasePrice * (decimal)Markup / 100);
         }
         public decimal TotalCost()  // Общая стоимость товаров
         {
@@ -22,7 +22,7 @@ namespace ProductsLib
 
         public Product(string productType,
             decimal purchasePrice,
-            int markup,
+            float markup,
             int quantity)
         {
             #region Проверка условий
