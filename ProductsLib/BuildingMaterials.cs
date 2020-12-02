@@ -6,7 +6,7 @@ namespace ProductsLib
 {
     public class BuildingMaterials : Product
     {
-        public string Name { get; set; }
+        public string Name { get; set; }  // Наименование продукта
 
         public BuildingMaterials(string productType,
             decimal purchasePrice,
@@ -14,7 +14,7 @@ namespace ProductsLib
             int quantity, string name) : base(productType,
             purchasePrice,
             markup,
-            quantity)
+            quantity)   // Конструктор BuildingMaterials
         {
             if (name == null)
             {
@@ -23,7 +23,7 @@ namespace ProductsLib
             Name = name;
         }
 
-        public static BuildingMaterials operator +(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)
+        public static BuildingMaterials operator +(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2) // Перегрузка оператора +
         {
             if (buildingMaterials1.Name == buildingMaterials2.Name)
             {
@@ -36,7 +36,7 @@ namespace ProductsLib
             return buildingMaterials1;
         }
 
-        public static BuildingMaterials operator -(BuildingMaterials buildingMaterial, int number)
+        public static BuildingMaterials operator -(BuildingMaterials buildingMaterial, int number)  // Перегрузка оператора -
         {
             if (number > buildingMaterial.Quantity)
             {
@@ -49,14 +49,34 @@ namespace ProductsLib
             }
         }
 
-        public static explicit operator int(BuildingMaterials buildingMaterials)
+        public static explicit operator int(BuildingMaterials buildingMaterials)  // Приведение к int
         {
             return (int)(buildingMaterials.TotalCost() * 100);
         }
 
-        public static explicit operator double(BuildingMaterials buildingMaterials)
+        public static explicit operator double(BuildingMaterials buildingMaterials)  // Приведение к double
         {
             return (double)(buildingMaterials.TotalCost());
+        }
+
+        public static implicit operator Food(BuildingMaterials buildingMaterials) // Приведение к Food
+        {
+            return new Food(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+        }
+
+        public static implicit operator SportGoods(BuildingMaterials buildingMaterials)  // Приведение к SportGoods
+        {
+            return new SportGoods(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+        }
+
+        public static implicit operator Shoes(BuildingMaterials buildingMaterials)  // Приведение к Shoes
+        {
+            return new Shoes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+        }
+
+        public static implicit operator Clothes(BuildingMaterials buildingMaterials)  // Приведение к Clothes
+        {
+            return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
     }
 }

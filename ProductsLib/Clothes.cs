@@ -6,7 +6,7 @@ namespace ProductsLib
 {
     public class Clothes: Product
     {
-        public string Name { get; set; }
+        public string Name { get; set; }  // Наименование продукта
 
         public Clothes(string productType,
             decimal purchasePrice,
@@ -23,7 +23,7 @@ namespace ProductsLib
             Name = name;
         }
 
-        public static Clothes operator +(Clothes clothes1, Clothes clothes2)
+        public static Clothes operator +(Clothes clothes1, Clothes clothes2)  // Перегрузка оператора +
         {
             if (clothes1.Name == clothes1.Name)
             {
@@ -36,7 +36,7 @@ namespace ProductsLib
             return clothes1;
         }
 
-        public static Clothes operator -(Clothes clothes1, int number)
+        public static Clothes operator -(Clothes clothes1, int number)  // Перегрузка оператора -
         {
             if (number > clothes1.Quantity)
             {
@@ -49,14 +49,34 @@ namespace ProductsLib
             }
         }
 
-        public static explicit operator int(Clothes clothes)
+        public static explicit operator int(Clothes clothes)  // Приведение к int
         {
             return (int)(clothes.TotalCost() * 100);
         }
 
-        public static explicit operator double(Clothes clothes)
+        public static explicit operator double(Clothes clothes)  // Приведение к double
         {
             return (double)(clothes.TotalCost());
+        }
+
+        public static implicit operator Food(Clothes clothes) // Приведение к Food
+        {
+            return new Food(clothes.ProductType, clothes.PurchasePrice, clothes.Markup, clothes.Quantity, clothes.Name);
+        }
+
+        public static implicit operator SportGoods(Clothes clothes)  // Приведение к SportGoods
+        {
+            return new SportGoods(clothes.ProductType, clothes.PurchasePrice, clothes.Markup, clothes.Quantity, clothes.Name);
+        }
+
+        public static implicit operator Shoes(Clothes clothes)  // Приведение к Shoes
+        {
+            return new Shoes(clothes.ProductType, clothes.PurchasePrice, clothes.Markup, clothes.Quantity, clothes.Name);
+        }
+
+        public static implicit operator Clothes(BuildClothesingMaterials buildingMaterials)  // Приведение к Clothes
+        {
+            return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
     }
 }

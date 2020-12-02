@@ -23,7 +23,7 @@ namespace ProductsLib
             Name = name;
         }
 
-        public static Shoes operator +(Shoes shoes1, Shoes shoes2)
+        public static Shoes operator +(Shoes shoes1, Shoes shoes2)  // Перегрузка оператора +
         {
             if (shoes1.Name == shoes2.Name)
             {
@@ -36,7 +36,7 @@ namespace ProductsLib
             return shoes1;
         }
 
-        public static Shoes operator -(Shoes shoes1, int number)
+        public static Shoes operator -(Shoes shoes1, int number)  // Перегрузка оператора -
         {
             if (number > shoes1.Quantity)
             {
@@ -49,15 +49,35 @@ namespace ProductsLib
             }
         }
 
-        public static explicit operator int(Shoes shoes)
+        public static explicit operator int(Shoes shoes)  // Приведение к int
         {
             return (int)(shoes.TotalCost() * 100);
         }
 
-        public static explicit operator double(Shoes shoes)
+        public static explicit operator double(Shoes shoes)  // Приведение к double
         {
             return (double)(shoes.TotalCost());
         }
-        
+
+        public static implicit operator Food(Shoes shoes) // Приведение к Food
+        {
+            return new Food(shoes.ProductType, shoes.PurchasePrice, shoes.Markup, shoes.Quantity, shoes.Name);
+        }
+
+        public static implicit operator BuildingMaterials(Shoes shoes)  // Приведение к BuildingMaterials
+        {
+            return new BuildingMaterials(shoes.ProductType, shoes.PurchasePrice, shoes.Markup, shoes.Quantity, shoes.Name);
+        }
+
+        public static implicit operator SportGoods(Shoes shoes)  // Приведение к SportGoods
+        {
+            return new SportGoods(shoes.ProductType, shoes.PurchasePrice, shoes.Markup, shoes.Quantity, shoes.Name);
+        }
+
+        public static implicit operator Clothes(Shoes shoes)  // Приведение к Clothes
+        {
+            return new Clothes(shoes.ProductType, shoes.PurchasePrice, shoes.Markup, shoes.Quantity, shoes.Name);
+        }
+
     }
 }
