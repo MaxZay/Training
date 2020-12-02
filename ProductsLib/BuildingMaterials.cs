@@ -82,25 +82,38 @@ namespace ProductsLib
             return (double)(buildingMaterials.TotalCost());
         }
 
-        public static implicit operator Food(BuildingMaterials buildingMaterials) // Приведение к Food
+        public static explicit operator Food(BuildingMaterials buildingMaterials) // Приведение к Food
         {
             return new Food(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
-        public static implicit operator SportGoods(BuildingMaterials buildingMaterials)  // Приведение к SportGoods
+        public static explicit operator SportGoods(BuildingMaterials buildingMaterials)  // Приведение к SportGoods
         {
             return new SportGoods(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
-        public static implicit operator Shoes(BuildingMaterials buildingMaterials)  // Приведение к Shoes
+        public static explicit operator Shoes(BuildingMaterials buildingMaterials)  // Приведение к Shoes
         {
             return new Shoes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
-        public static implicit operator Clothes(BuildingMaterials buildingMaterials)  // Приведение к Clothes
+        public static explicit operator Clothes(BuildingMaterials buildingMaterials)  // Приведение к Clothes
         {
             return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
         #endregion
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -73,25 +73,26 @@ namespace ProductsLib
 
         #region Приведение к типам
 
-        public static implicit operator Food(SportGoods sportGoods) // Приведение к Food
+        public static explicit operator Food(SportGoods sportGoods) // Приведение к Food
         {
             return new Food(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
    
-        public static implicit operator BuildingMaterials(SportGoods sportGoods)  // Приведение к BuildingMaterials
+        public static explicit operator BuildingMaterials(SportGoods sportGoods)  // Приведение к BuildingMaterials
         {
             return new BuildingMaterials(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
 
-        public static implicit operator Shoes(SportGoods sportGoods)  // Приведение к Shoes
+        public static explicit operator Shoes(SportGoods sportGoods)  // Приведение к Shoes
         {
             return new Shoes(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
 
-        public static implicit operator Clothes(SportGoods sportGoods)  // Приведение к Clothes
+        public static explicit operator Clothes(SportGoods sportGoods)  // Приведение к Clothes
         {
             return new Clothes(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
+
         public static explicit operator int(SportGoods sportGoods)  // Приведение к int
         {
             return (int)(sportGoods.TotalCost() * 100);
@@ -103,6 +104,18 @@ namespace ProductsLib
         }
         #endregion
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }

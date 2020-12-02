@@ -82,27 +82,40 @@ namespace ProductsLib
             return (double)(food.TotalCost());
         }
 
-        public static implicit operator SportGoods(Food food) // Приведение к SportGoods
+        public static explicit operator SportGoods(Food food) // Приведение к SportGoods
         {
             return new SportGoods(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
-        public static implicit operator BuildingMaterials(Food food)  // Приведение к BuildingMaterials
+        public static explicit operator BuildingMaterials(Food food)  // Приведение к BuildingMaterials
         {
             return new BuildingMaterials(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
-        public static implicit operator Shoes(Food food)  // Приведение к Shoes
+        public static explicit operator Shoes(Food food)  // Приведение к Shoes
         {
             return new Shoes(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
-        public static implicit operator Clothes(Food food)  // Приведение к Clothes
+        public static explicit operator Clothes(Food food)  // Приведение к Clothes
         {
             return new Clothes(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
+
         #endregion
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }
