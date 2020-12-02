@@ -22,18 +22,21 @@ namespace ProductsLib
             }
             Name = name;
         }
-
+        #region Перегрузка операторов
         public static BuildingMaterials operator +(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2) // Перегрузка оператора +
         {
             if (buildingMaterials1.Name == buildingMaterials2.Name)
             {
-
+                return new BuildingMaterials(buildingMaterials1.ProductType,
+                  GetNewPurchasePrice(buildingMaterials1, buildingMaterials2),
+                  GetNewMarkup(buildingMaterials1, buildingMaterials2),
+                  GetNewQuantity(buildingMaterials1, buildingMaterials2),
+                  buildingMaterials1.Name);
             }
             else
             {
                 throw new Exception("Не совпадают наименования продукта");
             }
-            return buildingMaterials1;
         }
 
         public static BuildingMaterials operator -(BuildingMaterials buildingMaterial, int number)  // Перегрузка оператора -
@@ -49,6 +52,26 @@ namespace ProductsLib
             }
         }
 
+        #region Получение новых полей
+        private static decimal GetNewPurchasePrice(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение новой закупочной цены
+        {
+            return (buildingMaterials1.PurchasePrice + buildingMaterials2.PurchasePrice) / (decimal)(buildingMaterials1.Quantity + buildingMaterials2.Quantity);
+        }
+
+        private static int GetNewMarkup(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение новой наценки
+        {
+            return (buildingMaterials1.Markup + buildingMaterials2.Markup) / (buildingMaterials1.Quantity + buildingMaterials2.Quantity);
+        }
+
+        private static int GetNewQuantity(BuildingMaterials buildingMaterials1, BuildingMaterials buildingMaterials2)  // Получение нового количества
+        {
+            return buildingMaterials1.Quantity + buildingMaterials2.Quantity;
+        }
+        #endregion
+
+        #endregion
+
+        #region Приведение типов
         public static explicit operator int(BuildingMaterials buildingMaterials)  // Приведение к int
         {
             return (int)(buildingMaterials.TotalCost() * 100);
@@ -78,5 +101,6 @@ namespace ProductsLib
         {
             return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
+        #endregion
     }
 }

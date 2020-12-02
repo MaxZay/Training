@@ -22,18 +22,22 @@ namespace ProductsLib
             Name = name;
         }
 
+        #region Перегрузка операторов
         public static Food operator +(Food food1, Food food2)  // Перегрузка оператора +
         {
             if(food1.Name == food1.Name)
             {
-
+                return new Food(food1.ProductType, 
+                    GetNewPurchasePrice(food1, food2), 
+                    GetNewMarkup(food1, food2), 
+                    GetNewQuantity(food1, food2),
+                    food1.Name);
             }
             else
             {
                 throw new Exception("Не совпадают наименования продукта");
             }
-            return food1;
-        }
+        }      
 
         public static Food operator - (Food food1, int number) // Перегрузка оператора -
         {
@@ -47,6 +51,26 @@ namespace ProductsLib
                 return food1;
             }
         }
+
+        private static decimal GetNewPurchasePrice(Food food1, Food food2)  // Получение новой закупочной цены
+        {
+            return (food1.PurchasePrice + food2.PurchasePrice) / (decimal)(food1.Quantity + food2.Quantity);
+        }
+
+        #region Получение новых полей
+        private static int GetNewMarkup(Food food1, Food food2)  // Получение новой наценки
+        {
+            return (food1.Markup + food2.Markup) / (food1.Quantity + food2.Quantity);
+        }
+
+        private static int GetNewQuantity(Food food1, Food food2)  // Получение нового количества
+        {
+            return food1.Quantity + food2.Quantity;
+        }
+        #endregion
+        #endregion
+
+        #region Приведение типов
 
         public static explicit operator int(Food food) // Приведение к int
         {
@@ -77,7 +101,7 @@ namespace ProductsLib
         {
             return new Clothes(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
-
+        #endregion
 
 
     }

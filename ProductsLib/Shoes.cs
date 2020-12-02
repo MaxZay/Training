@@ -22,18 +22,21 @@ namespace ProductsLib
             }
             Name = name;
         }
-
+        #region Перегрезка операторов
         public static Shoes operator +(Shoes shoes1, Shoes shoes2)  // Перегрузка оператора +
         {
             if (shoes1.Name == shoes2.Name)
             {
-
+                return new Shoes(shoes1.ProductType,
+                 GetNewPurchasePrice(shoes1, shoes2),
+                 GetNewMarkup(shoes1, shoes2),
+                 GetNewQuantity(shoes1, shoes2),
+                 shoes1.Name);
             }
             else
             {
                 throw new Exception("Не совпадают наименования продукта");
             }
-            return shoes1;
         }
 
         public static Shoes operator -(Shoes shoes1, int number)  // Перегрузка оператора -
@@ -48,6 +51,26 @@ namespace ProductsLib
                 return shoes1;
             }
         }
+
+        #region Получение новых полей
+        private static decimal GetNewPurchasePrice(Shoes shoes1, Shoes shoes2)  // Получение новой закупочной цены
+        {
+            return (shoes1.PurchasePrice + shoes2.PurchasePrice) / (decimal)(shoes1.Quantity + shoes2.Quantity);
+        }
+
+        private static int GetNewMarkup(Shoes shoes1, Shoes shoes2)  // Получение новой наценки
+        {
+            return (shoes1.Markup + shoes2.Markup) / (shoes1.Quantity + shoes2.Quantity);
+        }
+
+        private static int GetNewQuantity(Shoes shoes1, Shoes shoes2)  // Получение нового количества
+        {
+            return shoes1.Quantity + shoes2.Quantity;
+        }
+        #endregion
+        #endregion
+
+        #region Приведение к типам
 
         public static explicit operator int(Shoes shoes)  // Приведение к int
         {
@@ -78,6 +101,7 @@ namespace ProductsLib
         {
             return new Clothes(shoes.ProductType, shoes.PurchasePrice, shoes.Markup, shoes.Quantity, shoes.Name);
         }
+        #endregion
 
     }
 }

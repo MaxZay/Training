@@ -23,17 +23,21 @@ namespace ProductsLib
             Name = name;
         }
 
+        #region Перегрузка операторов
         public static Clothes operator +(Clothes clothes1, Clothes clothes2)  // Перегрузка оператора +
         {
             if (clothes1.Name == clothes1.Name)
             {
-
+                return new Clothes(clothes1.ProductType,
+                 GetNewPurchasePrice(clothes1, clothes2),
+                 GetNewMarkup(clothes1, clothes2),
+                 GetNewQuantity(clothes1, clothes2),
+                 clothes1.Name);
             }
             else
             {
                 throw new Exception("Не совпадают наименования продукта");
             }
-            return clothes1;
         }
 
         public static Clothes operator -(Clothes clothes1, int number)  // Перегрузка оператора -
@@ -49,6 +53,26 @@ namespace ProductsLib
             }
         }
 
+        #region Получение новых полей
+        private static decimal GetNewPurchasePrice(Shoes shoes1, Shoes shoes2)  // Получение новой закупочной цены
+        {
+            return (shoes1.PurchasePrice + shoes2.PurchasePrice) / (decimal)(shoes1.Quantity + shoes2.Quantity);
+        }
+
+        private static int GetNewMarkup(Shoes shoes1, Shoes shoes2)  // Получение новой наценки
+        {
+            return (shoes1.Markup + shoes2.Markup) / (shoes1.Quantity + shoes2.Quantity);
+        }
+
+        private static int GetNewQuantity(Shoes shoes1, Shoes shoes2)  // Получение нового количества
+        {
+            return shoes1.Quantity + shoes2.Quantity;
+        }
+        #endregion
+
+        #endregion
+
+        #region Приведение типов
         public static explicit operator int(Clothes clothes)  // Приведение к int
         {
             return (int)(clothes.TotalCost() * 100);
@@ -74,9 +98,10 @@ namespace ProductsLib
             return new Shoes(clothes.ProductType, clothes.PurchasePrice, clothes.Markup, clothes.Quantity, clothes.Name);
         }
 
-        public static implicit operator Clothes(BuildClothesingMaterials buildingMaterials)  // Приведение к Clothes
+        public static implicit operator BuildingMaterials(Clothes clothes)  // Приведение к BuildingMaterials
         {
-            return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+            return new BuildingMaterials(clothes.ProductType, clothes.PurchasePrice, clothes.Markup, clothes.Quantity, clothes.Name);
         }
+        #endregion
     }
 }

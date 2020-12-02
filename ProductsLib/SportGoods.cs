@@ -22,18 +22,21 @@ namespace ProductsLib
             }
             Name = name;
         }
-
+        #region Перегрузка операторов
         public static SportGoods operator +(SportGoods sportGoods1, SportGoods sportGoods2) // Перегрузка оператора +
         {
             if (sportGoods1.Name == sportGoods2.Name)
             {
-
+                return new SportGoods(sportGoods1.ProductType,
+                    GetNewPurchasePrice(sportGoods1, sportGoods2),
+                    GetNewMarkup(sportGoods1, sportGoods2),
+                    GetNewQuantity(sportGoods1, sportGoods2),
+                    sportGoods1.Name);
             }
             else
             {
                 throw new Exception("Не совпадают наименования продукта");
             }
-            return sportGoods1;
         }
 
         public static SportGoods operator -(SportGoods sportGoods1, int number)  // Перегрузка оператора - 
@@ -49,21 +52,32 @@ namespace ProductsLib
             }
         }
 
-        public static explicit operator int(SportGoods sportGoods)  // Приведение к int
+        #region Получение новых полей
+        private static decimal GetNewPurchasePrice(SportGoods sportGoods1, SportGoods sportGoods2)  // Получение новой закупочной цены
         {
-            return (int)(sportGoods.TotalCost() * 100);
+            return (sportGoods1.PurchasePrice + sportGoods2.PurchasePrice) / (decimal)(sportGoods1.Quantity + sportGoods2.Quantity);
         }
 
-        public static explicit operator double(SportGoods sportGoods)  // Приведение к double
+        private static int GetNewMarkup(SportGoods sportGoods1, SportGoods sportGoods2)  // Получение новой наценки
         {
-            return (double)(sportGoods.TotalCost());
+            return (sportGoods1.Markup + sportGoods2.Markup) / (sportGoods1.Quantity + sportGoods2.Quantity);
         }
+
+        private static int GetNewQuantity(SportGoods sportGoods1, SportGoods sportGoods2)  // Получение нового количества
+        {
+            return sportGoods1.Quantity + sportGoods2.Quantity;
+        }
+        #endregion
+
+        #endregion
+
+        #region Приведение к типам
 
         public static implicit operator Food(SportGoods sportGoods) // Приведение к Food
         {
             return new Food(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
-
+   
         public static implicit operator BuildingMaterials(SportGoods sportGoods)  // Приведение к BuildingMaterials
         {
             return new BuildingMaterials(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
@@ -78,6 +92,17 @@ namespace ProductsLib
         {
             return new Clothes(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
+        public static explicit operator int(SportGoods sportGoods)  // Приведение к int
+        {
+            return (int)(sportGoods.TotalCost() * 100);
+        }
+
+        public static explicit operator double(SportGoods sportGoods)  // Приведение к double
+        {
+            return (double)(sportGoods.TotalCost());
+        }
+        #endregion
+
 
     }
 }
