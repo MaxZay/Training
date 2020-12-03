@@ -2,6 +2,7 @@
 
 namespace ProductsLib
 {
+    [Serializable]
     abstract public class Product : IProduct
     {
         #region Свойства
