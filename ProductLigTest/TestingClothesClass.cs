@@ -233,7 +233,7 @@ namespace ProductLigTest
         }
 
         [Test, TestCaseSource("TestCasesConvertToFood")]
-        public void TestFoodConvertToFood(Clothes clothes, Food expectedFood)  // Тестирование приведеня к типу SportGoods
+        public void TestFoodConvertToFood(Clothes clothes, Food expectedFood)  // Тестирование приведеня к типу Food
         {
             Assert.AreEqual(expectedFood, (Food)clothes);
         }
