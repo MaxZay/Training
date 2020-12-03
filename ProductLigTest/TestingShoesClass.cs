@@ -56,7 +56,7 @@ namespace ProductLigTest
             new object[]
             {
                 new Shoes("Shoes", 20000.0M, 15, 300, "Кросовки"),
-                76.77M
+                76.67M
             },
             new object[]
             {
@@ -197,61 +197,61 @@ namespace ProductLigTest
         };  // Набор условий для тестирования
 
         [Test, TestCaseSource("TestCasesSumShoes")]
-        public void TestSumClothes(Shoes shoes1, Shoes shoes2, Shoes expectedShoes)  // Тестирование суммы Food
+        public void TestSumShoes(Shoes shoes1, Shoes shoes2, Shoes expectedShoes)  // Тестирование суммы Food
         {
             Assert.AreEqual(expectedShoes, shoes1 + shoes2);
         }
 
         [Test, TestCaseSource("TestCasesSubShoes")]
-        public void TestSubClothes(Shoes shoes, int num, Shoes expectedShoes)  // Тестирование разности Food
+        public void TestSubShoes(Shoes shoes, int num, Shoes expectedShoes)  // Тестирование разности Food
         {
             Assert.AreEqual(expectedShoes, shoes - num);
         }
 
         [Test, TestCaseSource("TestCasesUnitPrice")]
-        public void TestFoodUnitPrice(Shoes shoes, decimal expectedUnitPrice)  // Тестирование метода UnitCost
+        public void TestShoesUnitPrice(Shoes shoes, decimal expectedUnitPrice)  // Тестирование метода UnitCost
         {
             Assert.AreEqual(expectedUnitPrice, shoes.UnitCost());
         }
 
         [Test, TestCaseSource("TestCasesTotalPrice")]
-        public void TestFoodTotalPrice(Shoes shoes, decimal expectedTotalPrice)  // Тестирование метода TotalCost
+        public void TestShoesTotalPrice(Shoes shoes, decimal expectedTotalPrice)  // Тестирование метода TotalCost
         {
             Assert.AreEqual(expectedTotalPrice, shoes.TotalCost());
         }
 
         [Test, TestCaseSource("TestCasesConvertToInt")]
-        public void TestFoodConvertToInt(Shoes shoes, int expectedInt)  // Тестирование приведения к типу int
+        public void TestShoesConvertToInt(Shoes shoes, int expectedInt)  // Тестирование приведения к типу int
         {
             Assert.AreEqual(expectedInt, (int)shoes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToDouble")]
-        public void TestFoodConvertToDouble(Shoes shoes, double expectedDouble)  // Тестирование приведения к типу double
+        public void TestShoesConvertToDouble(Shoes shoes, double expectedDouble)  // Тестирование приведения к типу double
         {
             Assert.AreEqual(expectedDouble, (double)shoes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToFood")]
-        public void TestFoodConvertToFood(Shoes shoes, Food expectedFood)  // Тестирование приведеня к типу Food
+        public void TestShoesConvertToFood(Shoes shoes, Food expectedFood)  // Тестирование приведеня к типу Food
         {
             Assert.AreEqual(expectedFood, (Food)shoes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToSportGoods")]
-        public void TestFoodConvertToSportGoods(Shoes shoes, SportGoods expectedSportGoods)  // Тестирование приведения к типу SportGoods
+        public void TestShoesConvertToSportGoods(Shoes shoes, SportGoods expectedSportGoods)  // Тестирование приведения к типу SportGoods
         {
             Assert.AreEqual(expectedSportGoods, (SportGoods)shoes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToClothes")]
-        public void TestFoodConvertToShoes(Shoes shoes, Clothes expectedClothes)  // Тестирование приведения к типу Clothes
+        public void TestShoesConvertToShoes(Shoes shoes, Clothes expectedClothes)  // Тестирование приведения к типу Clothes
         {
             Assert.AreEqual(expectedClothes, (Clothes)shoes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToBuildingMaterials")]
-        public void TestFoodConvertToBuildingMaterials(Shoes shoes, BuildingMaterials expectedBuildingMaterials)  // Тестирование приведения к типу BuildingMaterials
+        public void TestShoesConvertToBuildingMaterials(Shoes shoes, BuildingMaterials expectedBuildingMaterials)  // Тестирование приведения к типу BuildingMaterials
         {
             Assert.AreEqual(expectedBuildingMaterials, (BuildingMaterials)shoes);
         }

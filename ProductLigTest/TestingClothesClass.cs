@@ -209,49 +209,49 @@ namespace ProductLigTest
         }
 
         [Test, TestCaseSource("TestCasesUnitPrice")]
-        public void TestFoodUnitPrice(Clothes clothes, decimal expectedUnitPrice)  // Тестирование метода UnitCost
+        public void TestClothesUnitPrice(Clothes clothes, decimal expectedUnitPrice)  // Тестирование метода UnitCost
         {
             Assert.AreEqual(expectedUnitPrice, clothes.UnitCost());
         }
 
         [Test, TestCaseSource("TestCasesTotalPrice")]
-        public void TestFoodTotalPrice(Clothes clothes, decimal expectedTotalPrice)  // Тестирование метода TotalCost
+        public void TestClothesTotalPrice(Clothes clothes, decimal expectedTotalPrice)  // Тестирование метода TotalCost
         {
             Assert.AreEqual(expectedTotalPrice, clothes.TotalCost());
         }
 
         [Test, TestCaseSource("TestCasesConvertToInt")]
-        public void TestFoodConvertToInt(Clothes clothes, int expectedInt)  // Тестирование приведения к типу int
+        public void TestClothesConvertToInt(Clothes clothes, int expectedInt)  // Тестирование приведения к типу int
         {
             Assert.AreEqual(expectedInt, (int)clothes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToDouble")]
-        public void TestFoodConvertToDouble(Clothes clothes, double expectedDouble)  // Тестирование приведения к типу double
+        public void TestClothesConvertToDouble(Clothes clothes, double expectedDouble)  // Тестирование приведения к типу double
         {
             Assert.AreEqual(expectedDouble, (double)clothes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToFood")]
-        public void TestFoodConvertToFood(Clothes clothes, Food expectedFood)  // Тестирование приведеня к типу Food
+        public void TestClothesConvertToFood(Clothes clothes, Food expectedFood)  // Тестирование приведеня к типу Food
         {
             Assert.AreEqual(expectedFood, (Food)clothes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToSportGoods")]
-        public void TestFoodConvertToClothes(Clothes clothes, SportGoods expectedSportGoods)  // Тестирование приведения к типу Clothes
+        public void TestClothesConvertToClothes(Clothes clothes, SportGoods expectedSportGoods)  // Тестирование приведения к типу SportGoods
         {
             Assert.AreEqual(expectedSportGoods, (SportGoods)clothes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToShoes")]
-        public void TestFoodConvertToShoes(Clothes clothes, Shoes expectedShoes)  // Тестирование приведения к типу Shoes
+        public void TestClothesConvertToShoes(Clothes clothes, Shoes expectedShoes)  // Тестирование приведения к типу Shoes
         {
             Assert.AreEqual(expectedShoes, (Shoes)clothes);
         }
 
         [Test, TestCaseSource("TestCasesConvertToBuildingMaterials")]
-        public void TestFoodConvertToBuildingMaterials(Clothes clothes, BuildingMaterials expectedBuildingMaterials)  // Тестирование приведения к типу BuildingMaterials
+        public void TestClothesConvertToBuildingMaterials(Clothes clothes, BuildingMaterials expectedBuildingMaterials)  // Тестирование приведения к типу BuildingMaterials
         {
             Assert.AreEqual(expectedBuildingMaterials, (BuildingMaterials)clothes);
         }
