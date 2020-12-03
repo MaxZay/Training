@@ -75,22 +75,22 @@ namespace ProductsLib
 
         public static explicit operator Food(SportGoods sportGoods) // Приведение к Food
         {
-            return new Food(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
+            return new Food("Food", sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
    
         public static explicit operator BuildingMaterials(SportGoods sportGoods)  // Приведение к BuildingMaterials
         {
-            return new BuildingMaterials(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
+            return new BuildingMaterials("BuildingMaterials", sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
 
         public static explicit operator Shoes(SportGoods sportGoods)  // Приведение к Shoes
         {
-            return new Shoes(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
+            return new Shoes("Shoes", sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
 
         public static explicit operator Clothes(SportGoods sportGoods)  // Приведение к Clothes
         {
-            return new Clothes(sportGoods.ProductType, sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
+            return new Clothes("Clothes", sportGoods.PurchasePrice, sportGoods.Markup, sportGoods.Quantity, sportGoods.Name);
         }
 
         public static explicit operator int(SportGoods sportGoods)  // Приведение к int
@@ -110,7 +110,16 @@ namespace ProductsLib
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            SportGoods sportGoods = obj as SportGoods;
+            if (sportGoods == null)
+            {
+                return false;
+            }
+            return this.Markup == sportGoods.Markup
+                && this.Name == sportGoods.Name
+                && this.ProductType == sportGoods.ProductType
+                && this.PurchasePrice == sportGoods.PurchasePrice
+                && this.Quantity == sportGoods.Quantity;
         }
         public override int GetHashCode()
         {

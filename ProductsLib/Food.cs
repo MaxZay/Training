@@ -78,27 +78,27 @@ namespace ProductsLib
 
         public static explicit operator double(Food food) // Приведение к double
         {
-            return (double)(food.TotalCost());
+            return Math.Round((double)(food.TotalCost()), 2);
         }
 
         public static explicit operator SportGoods(Food food) // Приведение к SportGoods
         {
-            return new SportGoods(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
+            return new SportGoods("SportGoods", food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
         public static explicit operator BuildingMaterials(Food food)  // Приведение к BuildingMaterials
         {
-            return new BuildingMaterials(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
+            return new BuildingMaterials("BuildingMaterials", food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
         public static explicit operator Shoes(Food food)  // Приведение к Shoes
         {
-            return new Shoes(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
+            return new Shoes("Shoes", food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
         public static explicit operator Clothes(Food food)  // Приведение к Clothes
         {
-            return new Clothes(food.ProductType, food.PurchasePrice, food.Markup, food.Quantity, food.Name);
+            return new Clothes("Clothes", food.PurchasePrice, food.Markup, food.Quantity, food.Name);
         }
 
         #endregion

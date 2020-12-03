@@ -84,22 +84,22 @@ namespace ProductsLib
 
         public static explicit operator Food(BuildingMaterials buildingMaterials) // Приведение к Food
         {
-            return new Food(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+            return new Food("Food", buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
         public static explicit operator SportGoods(BuildingMaterials buildingMaterials)  // Приведение к SportGoods
         {
-            return new SportGoods(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+            return new SportGoods("SportGoods", buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
         public static explicit operator Shoes(BuildingMaterials buildingMaterials)  // Приведение к Shoes
         {
-            return new Shoes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+            return new Shoes("Shoes", buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
 
         public static explicit operator Clothes(BuildingMaterials buildingMaterials)  // Приведение к Clothes
         {
-            return new Clothes(buildingMaterials.ProductType, buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
+            return new Clothes("Clothes", buildingMaterials.PurchasePrice, buildingMaterials.Markup, buildingMaterials.Quantity, buildingMaterials.Name);
         }
         #endregion
 

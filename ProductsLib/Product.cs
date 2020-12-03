@@ -13,11 +13,11 @@ namespace ProductsLib
 
         public decimal UnitCost()  // Стоимость единицы товара
         {
-            return PurchasePrice / Quantity + (PurchasePrice * (decimal)Markup / 100);
+            return Math.Round((PurchasePrice / Quantity) + (PurchasePrice / Quantity * (decimal)Markup / 100), 2);
         }
         public decimal TotalCost()  // Общая стоимость товаров
         {
-            return (PurchasePrice + PurchasePrice * (decimal)Markup / 100) * (decimal)Quantity;
+            return Math.Round((((PurchasePrice / Quantity) + (PurchasePrice / Quantity * (decimal)Markup / 100)) * (decimal)Quantity), 2);
         }
 
         public Product(string productType,
