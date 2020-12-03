@@ -156,7 +156,43 @@ namespace ProductLigTest
                 new Food("Food", 10.0M, 12, 7, "Батон"),
                 new Clothes("Clothes", 10.0M, 12, 7, "Батон")
             }
-        };
+        };  // Набор условий для тестирования
+        public static object[] TestCasesConvertToShoes =
+        {
+            new object[]
+            {
+                new Food("Food", 12.5M, 15, 14, "Батон"),
+                new Shoes("Shoes", 12.5M, 15, 14, "Батон")
+            },
+            new object[]
+            {
+                new Food("Food", 15.1M, 21, 12, "Батон"),
+                new Shoes("Shoes", 15.1M, 21, 12, "Батон")
+            },
+            new object[]
+            {
+                new Food("Food", 10.0M, 12, 7, "Батон"),
+                new Shoes("Shoes", 10.0M, 12, 7, "Батон")
+            }
+        };  // Набор условий для тестирования
+        public static object[] TestCasesConvertToBuildingMaterials =
+        {
+             new object[]
+            {
+                new Food("Food", 12.5M, 15, 14, "Батон"),
+                new BuildingMaterials("BuildingMaterials", 12.5M, 15, 14, "Батон")
+            },
+            new object[]
+            {
+                new Food("Food", 15.1M, 21, 12, "Батон"),
+                new BuildingMaterials("BuildingMaterials", 15.1M, 21, 12, "Батон")
+            },
+            new object[]
+            {
+                new Food("Food", 10.0M, 12, 7, "Батон"),
+                new BuildingMaterials("BuildingMaterials", 10.0M, 12, 7, "Батон")
+            }
+        };  // Набор условий для тестирования
 
         [Test, TestCaseSource("TestCasesSumFood")]
         public void TestSumFood(Food food1, Food food2, Food expectedFood)  // Тестирование суммы Food
@@ -195,16 +231,30 @@ namespace ProductLigTest
         }
 
         [Test, TestCaseSource("TestCasesConvertToSportGoods")]
-        public void TestFoodConvertToSportGoods(Food food, SportGoods expectedSportGoods)  // Тестирование приведение к типу SportGoods
+        public void TestFoodConvertToSportGoods(Food food, SportGoods expectedSportGoods)  // Тестирование приведеня к типу SportGoods
         {
             Assert.AreEqual(expectedSportGoods, (SportGoods)food);
         }
 
         [Test, TestCaseSource("TestCasesConvertToClothes")]
-        public void TestFoodConvertToClothes(Food food, Clothes expectedClothes)  // Тестирование приведение к типу Clothes
+        public void TestFoodConvertToClothes(Food food, Clothes expectedClothes)  // Тестирование приведения к типу Clothes
         {
             Assert.AreEqual(expectedClothes, (Clothes)food);
         }
+
+        [Test, TestCaseSource("TestCasesConvertToShoes")]
+        public void TestFoodConvertToShoes(Food food, Shoes expectedShoes)  // Тестирование приведения к типу Shoes
+        {
+            Assert.AreEqual(expectedShoes, (Shoes)food);
+        }
+
+        [Test, TestCaseSource("TestCasesConvertToBuildingMaterials")]
+        public void TestFoodConvertToBuildingMaterials(Food food, BuildingMaterials expectedBuildingMaterials)  // Тестирование приведения к типу BuildingMaterials
+        {
+            Assert.AreEqual(expectedBuildingMaterials, (BuildingMaterials)food);
+        }
+
+
 
 
 

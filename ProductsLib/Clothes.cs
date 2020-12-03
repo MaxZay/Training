@@ -111,7 +111,16 @@ namespace ProductsLib
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Clothes clothes = obj as Clothes;
+            if (clothes == null)
+            {
+                return false;
+            }
+            return this.Markup == clothes.Markup
+                && this.Name == clothes.Name
+                && this.ProductType == clothes.ProductType
+                && this.PurchasePrice == clothes.PurchasePrice
+                && this.Quantity == clothes.Quantity;
         }
         public override int GetHashCode()
         {

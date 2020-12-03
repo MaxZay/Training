@@ -109,7 +109,16 @@ namespace ProductsLib
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            BuildingMaterials buildingMaterials = obj as BuildingMaterials;
+            if (buildingMaterials == null)
+            {
+                return false;
+            }
+            return this.Markup == buildingMaterials.Markup
+                && this.Name == buildingMaterials.Name
+                && this.ProductType == buildingMaterials.ProductType
+                && this.PurchasePrice == buildingMaterials.PurchasePrice
+                && this.Quantity == buildingMaterials.Quantity;
         }
         public override int GetHashCode()
         {
