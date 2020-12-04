@@ -1,36 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization.Json;
+using Newtonsoft.Json;
 
 namespace ProductsLib
 {
     public static class WorkWithFile
     {
-        public static void Save(List<Product> products, string fileName)
+        public static void Save(List<Product> products, string path)
         {
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            using (StreamWriter sw = new StreamWriter(path))
             {
                 for(int i = 0; i < products.Count; i++)
                 {
-                    var jsonFormatter = new DataContractJsonSerializer(products[i].GetType());
-                    jsonFormatter.WriteObject(fs, products[i]);
-                    
+                    string json = JsonConvert.SerializeObject(products[i]);
+                    if (i == products.Count - 1)
+                    {
+                        sw.Write(json);
+                        break;
+                    }
+                    sw.WriteLine(json);
                 }
                 
             }
         }
 
-        public static List<Product> Read(string fileName)
+        public static List<Product> Read(string path)
         {
-            var jsonFormatter = new DataContractJsonSerializer(typeof(List<Product>));
-            using(FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            try
             {
-                var newProducts = jsonFormatter.ReadObject(fs) as List<Product>;
-                return (List<Product>)newProducts;
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    List<Product> products = new List<Product>();
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] parseDot = line.Split(',');
+                        string[] parseType = parseDot[1].Split(':');
+                        string type = parseType[1].Replace(@"\", "");
+                        Type productType = TakeType(parseType[1]);
+                        if (productType == null)
+                        {
+                            throw new ArgumentNullException("Неверный тип");
+                        }
+                        else
+                        {
+                            var product = JsonConvert.DeserializeObject(line, productType);
+                            products.Add((Product)product);
+                        }
+                    }
+                    return products;
+                }
             }
-            
+            catch
+            {
+                throw new Exception("Ошибка чтения из файла");
+            }
+        }
+
+        private static Type TakeType(string str)
+        {
+            switch (str)
+            {
+                case "Food": return typeof(Food);
+                case "Clothes": return typeof(Clothes);
+                case "Shoes": return typeof(Shoes);
+                case "SportGoods": return typeof(SportGoods);
+                case "BuildingMaterials": return typeof(BuildingMaterials);
+                default: return null;
+            }
         }
     }
 }

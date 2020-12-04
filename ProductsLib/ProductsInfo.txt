@@ -1,1 +1,3 @@
-{"<Markup>k__BackingField":14,"<ProductType>k__BackingField":"Food","<PurchasePrice>k__BackingField":120.0,"<Quantity>k__BackingField":60,"<Name>k__BackingField":"Хлеб"}{"<Markup>k__BackingField":20,"<ProductType>k__BackingField":"SportGoods","<PurchasePrice>k__BackingField":175.0,"<Quantity>k__BackingField":10,"<Name>k__BackingField":"Мяч"}{"<Markup>k__BackingField":15,"<ProductType>k__BackingField":"BuildingMaterials","<PurchasePrice>k__BackingField":600.0,"<Quantity>k__BackingField":30,"<Name>k__BackingField":"Бетон"}
+{"Name":"Хлеб","ProductType":"Food","PurchasePrice":120.0,"Markup":14.0,"Quantity":60}
+{"Name":"Мяч","ProductType":"SportGoods","PurchasePrice":175.0,"Markup":20.0,"Quantity":10}
+{"Name":"Бетон","ProductType":"BuildingMaterials","PurchasePrice":600.0,"Markup":15.0,"Quantity":30}

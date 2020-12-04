@@ -19,8 +19,8 @@ namespace ProductLigTest
                 new BuildingMaterials("BuildingMaterials", 600.0M, 15, 30, "Бетон")
             };
             List<Product> productInfoRead = new List<Product>();
-            WorkWithFile.Save(productInfoSave, @"C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\ProductsInfo.txt");
-    //        productInfoSave = WorkWithFile.Read("productInfo.txt");
+         //   WorkWithFile.Save(productInfoSave, @"C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\ProductsInfo.txt");
+            productInfoSave = WorkWithFile.Read( @"C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\ProductsInfo.txt");
 
             Assert.AreEqual(productInfoSave, productInfoRead);
         }

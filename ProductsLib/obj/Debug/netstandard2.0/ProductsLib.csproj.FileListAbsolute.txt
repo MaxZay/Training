@@ -1,9 +1,9 @@
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.csprojAssemblyReference.cache
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.AssemblyInfoInputs.cache
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.AssemblyInfo.cs
-C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.csproj.CoreCompileInputs.cache
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\bin\Debug\netstandard2.0\ProductsLib.deps.json
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\bin\Debug\netstandard2.0\ProductsLib.dll
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\bin\Debug\netstandard2.0\ProductsLib.pdb
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.dll
 C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.pdb
+C:\Users\maxim\Documents\EPAM\Решения\EpamTask2\ProductsLib\obj\Debug\netstandard2.0\ProductsLib.csproj.CoreCompileInputs.cache
