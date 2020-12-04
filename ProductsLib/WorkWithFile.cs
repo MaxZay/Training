@@ -10,10 +10,15 @@ namespace ProductsLib
     {
         public static void Save(List<Product> products, string fileName)
         {
-            var jsonFormatter = new DataContractJsonSerializer(typeof(List<Product>));
             using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                jsonFormatter.WriteObject(fs, products);
+                for(int i = 0; i < products.Count; i++)
+                {
+                    var jsonFormatter = new DataContractJsonSerializer(products[i].GetType());
+                    jsonFormatter.WriteObject(fs, products[i]);
+                    
+                }
+                
             }
         }
 

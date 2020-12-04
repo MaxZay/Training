@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ProductsLib
 {
+    [Serializable]
     public class BuildingMaterials : Product
     {
         public string Name { get; set; }  // Наименование продукта
