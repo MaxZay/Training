@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace ProductsLib
@@ -38,8 +39,8 @@ namespace ProductsLib
                     {
                         string[] parseDot = line.Split(',');
                         string[] parseType = parseDot[1].Split(':');
-                        string type = parseType[1].Replace(@"\", "");
-                        Type productType = TakeType(parseType[1]);
+                        string type = parseType[1].Replace($"{(char)34}", "");
+                        Type productType = TakeType(type);
                         if (productType == null)
                         {
                             throw new ArgumentNullException("Неверный тип");
